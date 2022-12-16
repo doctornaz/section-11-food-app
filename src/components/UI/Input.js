@@ -4,15 +4,15 @@ import styled from "styled-components";
 const Input = (props) => {
   return (
     <StyledInput>
-      <label for={props.input.id}>{props.label}</label>
-      <input id={props.input.id} {...props.input} />
+      <label htmlFor={props.input.id}>{props.label}</label>
+      <input {...props.input} />
     </StyledInput>
   )
 };
 
 export default Input;
 
-const StyledInput = styled.input`
+const StyledInput = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;

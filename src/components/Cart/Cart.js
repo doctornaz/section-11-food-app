@@ -9,14 +9,14 @@ const Cart = (props) => {
     ].map((item)=> <li>{item.name}</li>);
 
   return (
-    <Modal>
+    <Modal onClick={props.onClose}>
       {cartItems}
       <TotalSection>
         <span>Total Amount</span>
         <span>35.62</span>
       </TotalSection>
       <ActionsSection>
-        <CloseButton>Close</CloseButton>
+        <CloseButton onClick={props.onClose}>Close</CloseButton>
         <OrderButton>Order</OrderButton>
       </ActionsSection>
     </Modal>

@@ -4,7 +4,7 @@ import { Badge, IconContainer, StyledButton } from "./HeaderCartButton.styles";
 
 const HeaderCartButton = (props) => {
   return (
-    <StyledButton>
+    <StyledButton onClick={props.onClick}>
       <IconContainer>
         <CartIcon />
       </IconContainer>

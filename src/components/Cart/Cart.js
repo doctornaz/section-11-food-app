@@ -1,23 +1,33 @@
-import React from "react"
+import React, { useContext } from "react"
 import Modal from "../UI/Modal";
-import { ActionsSection, CloseButton, OrderButton, TotalSection } from "./Cart.styles";
+import CartContext from '../../context/cart-context';
+import { ActionsSection, CartItems, CloseButton, OrderButton, TotalSection } from "./Cart.styles";
 
 
 const Cart = (props) => {
-    const cartItems = [
-      { id: "c1", name: 'Sushi', amount: 2, price:12.99 },
-    ].map((item)=> <li>{item.name}</li>);
+  const cartCtx = useContext(CartContext);
+
+  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  const hasItems = cartCtx.items.length > 0;
+
+  const cartItems = (
+    <CartItems>
+      {cartCtx.items.map( (item) => 
+        <li>{item.name}</li>
+      )}
+    </CartItems>
+  );
 
   return (
     <Modal onClick={props.onClose}>
       {cartItems}
       <TotalSection>
         <span>Total Amount</span>
-        <span>35.62</span>
+        <span>{totalAmount}</span>
       </TotalSection>
       <ActionsSection>
         <CloseButton onClick={props.onClose}>Close</CloseButton>
-        <OrderButton>Order</OrderButton>
+        {hasItems && <OrderButton>Order</OrderButton>}
       </ActionsSection>
     </Modal>
   )

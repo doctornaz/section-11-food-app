@@ -1,4 +1,4 @@
-import styled,{ keyframes } from "styled-components";
+import styled,{ keyframes, css } from "styled-components";
 
 export const Badge = styled.span`
     background-color: #b94517;
@@ -52,5 +52,7 @@ export const StyledButton = styled.button`
     &:active ${Badge} {
         background-color: #92320c;
     }
-    animation: ${Bump} 300ms ease-out
+    ${(props)=> props.animate && css`
+        animation: ${Bump} 300ms ease-out
+    `}
 `;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled,{ keyframes } from "styled-components";
 
 export const Badge = styled.span`
     background-color: #b94517;
@@ -12,6 +12,24 @@ export const IconContainer = styled.span`
     width: 1.35rem;
     height: 1.35rem;
     margin-right: 0.5rem;
+`;
+
+const Bump = keyframes`
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(0.9);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
 `;
 
 export const StyledButton = styled.button`
@@ -34,26 +52,5 @@ export const StyledButton = styled.button`
     &:active ${Badge} {
         background-color: #92320c;
     }
+    animation: ${Bump} 300ms ease-out
 `;
-
-// .bump {
-//     animation: bump 300ms ease-out;
-//   }
-  
-//   @keyframes bump {
-//     0% {
-//       transform: scale(1);
-//     }
-//     10% {
-//       transform: scale(0.9);
-//     }
-//     30% {
-//       transform: scale(1.1);
-//     }
-//     50% {
-//       transform: scale(1.15);
-//     }
-//     100% {
-//       transform: scale(1);
-//     }
-//   }
